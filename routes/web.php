@@ -15,11 +15,12 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    echo "This is home!";
+   //return view('welcome');
 });
 
-Route::get('/about', [AboutController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index'])->middleware('check');
 
 Route::get('/contacts', [ContactsController::class, 'index']);
 
