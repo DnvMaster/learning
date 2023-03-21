@@ -14,13 +14,11 @@ use App\Http\Controllers\ContactsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/home', function () {
-    echo "This is home!";
-   //return view('welcome');
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Route::get('/about', [AboutController::class, 'index'])->middleware('check');
 
-Route::get('/contacts', [ContactsController::class, 'index']);
+Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 
