@@ -22,3 +22,7 @@ Route::get('/about', [AboutController::class, 'index'])->middleware('check');
 
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

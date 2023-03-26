@@ -25,7 +25,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
@@ -41,8 +41,8 @@
 
                 </div>
 
-                <h2>Home page</h2>
-                <a href="{{ url('/') }}">Home</a> |
+                <h2>Dashboard page</h2>
+                <a href="{{ url('/') }}">Dashboard</a> |
                 <a href="{{ URL::to('/about') }}">About</a> |
                 <a href="{{ route('contacts') }}">Contacts</a>
 
