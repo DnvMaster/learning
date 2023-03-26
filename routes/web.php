@@ -24,5 +24,6 @@ Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    $users = \App\Models\User::All();
+    return view('dashboard',compact('users'));
 })->name('dashboard');
