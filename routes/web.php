@@ -21,10 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('/about', [AboutController::class, 'index'])->middleware('check');
-
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
-
-Route::get('/category/all',[CategoryController::class, 'categories'])->name('all.category');
+Route::get('/category/all',[CategoryController::class, 'allCategories'])->name('all.category');
+Route::post('/category/add',[CategoryController::class, 'addCategories'])->name('store.category');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $users = DB::table('users')->get();
