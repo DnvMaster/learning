@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\DB;
 
@@ -16,14 +16,22 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', [AboutController::class, 'index'])->middleware('check');
-Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
-Route::get('/category/all',[CategoryController::class, 'allCategories'])->name('all.category');
-Route::post('/category/add',[CategoryController::class, 'addCategories'])->name('store.category');
+Route::get('/home', function () {
+    echo " This is home page ";
+});
+
+Route::get('/about', [AboutController::class, 'index'])->name('about')->middleware('check');
+
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::get('/category/all',[CategoryController::class, 'AllCat'])->name('all.category');
+Route::post('/category/add',[CategoryController::class, 'AddCat'])->name('store.category');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $users = DB::table('users')->get();
