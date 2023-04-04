@@ -4,7 +4,7 @@
         <div class="py-12">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <div class="card">
                             <!-- Warning save category -->
                             @if(session('success'))
@@ -23,8 +23,9 @@
                                     <tr class="text-center">
                                         <th scope="col">№</th>
                                         <th scope="col">Название</th>
-                                        <th scope="col">Id пользователя</th>
+                                        <th scope="col">Пользователь</th>
                                         <th scope="col">Дата создания</th>
+                                        <th scope="col">Действие</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -33,13 +34,18 @@
                                         <tr class="text-center">
                                             <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
                                             <td>{{ $category->category_name }}</td>
-                                            <td>{{ $category->name }}</td>
+                                            <td>{{ $category->user->name }}</td>
                                             <td>
                                                 @if($category->created_at == NULL)
                                                     <span class="text-danger">Дата не установлена.</span>
                                                 @else
-                                                    {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}</td>
+                                                    {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                                            </td>
                                                 @endif
+                                            <td>
+                                                <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Ред-ть</a>
+                                                <a href="#" class="btn btn-danger">Удалить</a>
+                                            </td>
                                         </tr>
                                     @endforeach
 
@@ -49,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="card">
                             <div class="card-header">Добавление категории</div>
                             <div class="card-body">
@@ -62,7 +68,7 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Добавить кетегорию</button>
+                                    <button type="submit" class="btn btn-primary">Добавить</button>
                                 </form>
                             </div>
                         </div>
