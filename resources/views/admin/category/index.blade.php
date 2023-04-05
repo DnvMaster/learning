@@ -44,7 +44,7 @@
                                                 @endif
                                             <td>
                                                 <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Ред-ть</a>
-                                                <a href="#" class="btn btn-danger">Удалить</a>
+                                                <a href="{{ url('softdelete/category/'.$category->id) }}" class="btn btn-danger">К-зина</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -76,6 +76,49 @@
                 </div>
             </div>
         </div>
-
+            <!-- Trash part -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card-header">Корзина</div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                <tr class="text-center">
+                                    <th scope="col">№</th>
+                                    <th scope="col">Название</th>
+                                    <th scope="col">Пользователь</th>
+                                    <th scope="col">Дата создания</th>
+                                    <th scope="col">Действие</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- @php($i = 1) -->
+                                @foreach($trashCat as $category)
+                                    <tr class="text-center">
+                                        <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
+                                        <td>{{ $category->category_name }}</td>
+                                        <td>{{ $category->user->name }}</td>
+                                        <td>
+                                            @if($category->created_at == NULL)
+                                                <span class="text-danger">Дата не установлена.</span>
+                                            @else
+                                                {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                                        </td>
+                                        @endif
+                                        <td>
+                                            <a href="{{ url('category/restore/'.$category->id) }}" class="btn btn-primary">Вернуть</a>
+                                            <a href="{{ url('category/delete/'.$category->id) }}" class="btn btn-danger">Удалить</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            {{ $trashCat->links() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- // Trash part -->
     </x-slot>
 </x-app-layout>
