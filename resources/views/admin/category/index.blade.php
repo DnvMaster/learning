@@ -63,7 +63,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="exampleInputEmail1"></label>
-                                        <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Введите категорию" aria-describedby="emailHelp">
+                                        <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Введите катего..." aria-describedby="emailHelp">
                                         @error('category_name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
