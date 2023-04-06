@@ -8,8 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'brand_name',
-        'brand_image',
-    ];
+    protected $fillable = ['brand_name','brand_image',];
 }

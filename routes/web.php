@@ -40,7 +40,9 @@ Route::get('category/restore/{id}',[CategoryController::class, 'Restore']);
 Route::get('category/delete/{id}',[CategoryController::class, 'Delete']);
 
 # For brands
-Route::get('/brands/all',[BrandController::class, 'AllBrands'])->name('all.brands');
+Route::get('/brand/all',[BrandController::class, 'AllBrands'])->name('all.brands');
+Route::post('/brand/add/',[BrandController::class,'Brands'])->name('store.brand');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
