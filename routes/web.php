@@ -30,18 +30,20 @@ Route::get('/about', [AboutController::class, 'index'])->name('about')->middlewa
 
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-# For category
-Route::get('/category/all',[CategoryController::class, 'AllCat'])->name('all.category');
-Route::post('/category/add',[CategoryController::class, 'AddCat'])->name('store.category');
+# For category route
+Route::get('/category/all',[CategoryController::class,'AllCat'])->name('all.category');
+Route::post('/category/add',[CategoryController::class,'AddCat'])->name('store.category');
 Route::get('/category/edit/{id}',[CategoryController::class,'Edit']);
 Route::post('/category/update/{id}',[CategoryController::class,'Update']);
-Route::get('softdelete/category/{id}',[CategoryController::class, 'SoftDelete']);
-Route::get('category/restore/{id}',[CategoryController::class, 'Restore']);
-Route::get('category/delete/{id}',[CategoryController::class, 'Delete']);
-
-# For brands
-Route::get('/brand/all',[BrandController::class, 'AllBrands'])->name('all.brands');
+Route::get('softdelete/category/{id}',[CategoryController::class,'SoftDelete']);
+Route::get('category/restore/{id}',[CategoryController::class,'Restore']);
+Route::get('category/delete/{id}',[CategoryController::class,'Delete']);
+# For brands route
+Route::get('/brand/all',[BrandController::class,'AllBrands'])->name('all.brands');
 Route::post('/brand/add/',[BrandController::class,'Brands'])->name('store.brand');
+Route::get('/brand/edit/{id}',[BrandController::class,'Edit']);
+// Route::post('/brand/update/{id}',[BrandController::class,'Update']);
+// Route::get('/brand/delete/{id}',[BrandController::class,'Delete']);
 
 
 

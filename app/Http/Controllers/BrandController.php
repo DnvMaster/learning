@@ -24,7 +24,6 @@ class BrandController extends Controller
             'brand_name.required' => 'Пожалуйста, введите название брэнда!',
             'brand_image.min' => 'Имя файла изображения, должно быть, не больше 4 символов!',
         ]);
-
         $brand_image =  $request->file('brand_image');
 
         $name_gen = hexdec(uniqid());
@@ -40,5 +39,11 @@ class BrandController extends Controller
             'created_at' => Carbon::now(),
         ]);
         return Redirect()->back()->with('success','Брэнд успешно добавлен');
+    }
+
+    public function Edit($id)
+    {
+        $brands = Brand::find($id);
+        return view('admin.brand.edit', compact('brands'));
     }
 }

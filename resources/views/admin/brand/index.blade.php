@@ -20,7 +20,7 @@
                             <div class="card-body">
                                 <table class="table">
                                     <thead>
-                                    <tr class="text-center">
+                                    <tr>
                                         <th scope="col">№</th>
                                         <th scope="col">Название</th>
                                         <th scope="col">Изображение</th>
@@ -31,7 +31,7 @@
                                     <tbody>
                                     <!-- @php($i = 1) -->
                                     @foreach($brands as $brand)
-                                        <tr class="text-center">
+                                        <tr>
                                             <th scope="row">{{ $brands->firstItem()+$loop->index }}</th>
                                             <td>{{ $brand->brand_name }}</td>
                                             <td><img src="{{ asset($brand->brand_image) }}" style="height: 40px; width: 70px" alt="{--{ $brand->brand_name }--}"></td>
@@ -43,8 +43,8 @@
                                             </td>
                                             @endif
                                             <td>
-                                                <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Ред-ть</a>
-                                                <a href="{{ url('brand/delete/'.$brand->id) }}" class="btn btn-danger">К-зина</a>
+                                                <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Ред</a>
+                                                <a href="{{ url('brand/delete/'.$brand->id) }}" class="btn btn-danger">Кор</a>
                                             </td>
                                         </tr>
                                     @endforeach
