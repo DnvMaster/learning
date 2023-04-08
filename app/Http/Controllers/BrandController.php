@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class BrandController extends Controller
 {
@@ -86,5 +85,15 @@ class BrandController extends Controller
             return Redirect()->back()->with('success','Брэнд успешно обновлён');
         }
 
+    }
+
+    public function Delete($id)
+    {
+        $image = Brand::find($id);
+        $old_image = $image->brand_image;
+        unlink($old_image);
+
+        Brand::find($id)->delete();
+        return Redirect()->back()->with('success','Данный брэнд успешно удалён.');
     }
 }

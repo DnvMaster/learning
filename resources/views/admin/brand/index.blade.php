@@ -44,7 +44,7 @@
                                             @endif
                                             <td>
                                                 <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Ред</a>
-                                                <a href="{{ url('brand/delete/'.$brand->id) }}" class="btn btn-danger">Кор</a>
+                                                <a href="{{ url('brand/delete/'.$brand->id) }}" onclick="return confirm('Вы уверены, что хотите удалить этот брэнд!')" class="btn btn-danger">Удалить</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -98,4 +98,5 @@
 
     </x-slot>
 </x-app-layout>
+
 
