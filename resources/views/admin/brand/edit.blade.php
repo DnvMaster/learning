@@ -5,7 +5,7 @@
         <div class="py-12">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <div class="card">
                             @if(session('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -30,7 +30,7 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1"></label>
-                                        <input type="file" name="brand_image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $brands->brand_image }}">
+                                        <input type="file" name="brand_image" class="form-control-file" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $brands->brand_image }}">
                                         @error('brand_image')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror

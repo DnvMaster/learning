@@ -4,7 +4,7 @@
         <div class="py-12">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <div class="card">
                             <!-- Warning save category -->
                             @if(session('success'))
@@ -22,7 +22,7 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">№</th>
-                                        <th scope="col">Название</th>
+                                        <th scope="col">Брэнд</th>
                                         <th scope="col">Изображение</th>
                                         <th scope="col">Дата создания</th>
                                         <th scope="col">Действие</th>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">Добавить брэнд</div>
                             <div class="card-body">
@@ -76,7 +76,7 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Логотип</label>
-                                        <input type="file" name="brand_image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <input type="file" name="brand_image" class="form-control-file" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                                         @error('brand_image')
                                         <span class="text-danger"> {{ $message }}</span>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Multipic;
 use Faker\Provider\Image;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
@@ -100,5 +101,11 @@ class BrandController extends Controller
 
         Brand::find($id)->delete();
         return Redirect()->back()->with('success','Данный брэнд успешно удалён.');
+    }
+    # This is for Multi image all method
+    public function Multipic()
+    {
+        $images = Multipic::all();
+        return view('admin.multipic.index',compact('images'));
     }
 }
