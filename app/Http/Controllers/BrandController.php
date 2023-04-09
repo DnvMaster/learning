@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Multipic;
-use Faker\Provider\Image;
+use Image;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 
@@ -107,5 +107,22 @@ class BrandController extends Controller
     {
         $images = Multipic::all();
         return view('admin.multipic.index',compact('images'));
+    }
+
+    public function StoreImg(Request $request)
+    {
+        $image = $request->file('image');
+        foreach ($image as $multi_img)
+        {
+            $name_gen = hexdec(uniqid()).'.'.$multi_img->getClientOriginalExtension();
+            Image::make($multi_img)->resize(300,300)->save('image/multi/'.$name_gen);
+            $last_img = 'image/multi/'.$name_gen;
+
+            Multipic::insert([
+                'image'=>$last_img,
+                'created_at'=>Carbon::now(),
+            ]);
+        }
+        return Redirect()->back()->with('success','Все изображения были успешно добавлены.');
     }
 }
