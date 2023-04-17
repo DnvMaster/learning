@@ -5,6 +5,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -33,7 +34,6 @@ Route::get('/home', function () {
 
 Route::get('/about', [AboutController::class, 'index'])->name('about')->middleware('check');
 
-
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 # For category route
 Route::get('/category/all',[CategoryController::class,'AllCat'])->name('all.category');
@@ -43,7 +43,7 @@ Route::post('/category/update/{id}',[CategoryController::class,'Update']);
 Route::get('softdelete/category/{id}',[CategoryController::class,'SoftDelete']);
 Route::get('category/restore/{id}',[CategoryController::class,'Restore']);
 Route::get('category/delete/{id}',[CategoryController::class,'Delete']);
-# For brands route
+
 Route::get('/brand/all',[BrandController::class,'AllBrands'])->name('all.brands');
 Route::post('/brand/add/',[BrandController::class,'Brands'])->name('store.brand');
 Route::get('/brand/edit/{id}',[BrandController::class,'Edit']);
@@ -59,5 +59,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
 
-# Admin panel account logout
 Route::get('/user/logout',[BrandController::class,'logout'])->name('user.logout');
+Route::get('/home/slider',[HomeController::class,'HomeSlider'])->name('home.slider');
+

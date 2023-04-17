@@ -608,7 +608,7 @@
       ITEM: '.carousel-item',
       NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
       INDICATORS: '.carousel-indicators',
-      DATA_SLIDE: '[data-slide], [data-slide-to]',
+      DATA_SLIDE: '[data-slider], [data-slider-to]',
       DATA_RIDE: '[data-ride="carousel"]'
       /**
        * ------------------------------------------------------------------------
@@ -977,7 +977,7 @@
 
         var config = _objectSpread({}, $$$1(target).data(), $$$1(this).data());
 
-        var slideIndex = this.getAttribute('data-slide-to');
+        var slideIndex = this.getAttribute('data-slider-to');
 
         if (slideIndex) {
           config.interval = false;

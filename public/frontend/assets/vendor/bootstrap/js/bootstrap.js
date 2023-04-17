@@ -676,7 +676,7 @@
   var SELECTOR_ITEM_IMG = '.carousel-item img';
   var SELECTOR_NEXT_PREV = '.carousel-item-next, .carousel-item-prev';
   var SELECTOR_INDICATORS = '.carousel-indicators';
-  var SELECTOR_DATA_SLIDE = '[data-slide], [data-slide-to]';
+  var SELECTOR_DATA_SLIDE = '[data-slider], [data-slider-to]';
   var SELECTOR_DATA_RIDE = '[data-ride="carousel"]';
   var PointerType = {
     TOUCH: 'touch',
@@ -1137,7 +1137,7 @@
 
       var config = _objectSpread2(_objectSpread2({}, $(target).data()), $(this).data());
 
-      var slideIndex = this.getAttribute('data-slide-to');
+      var slideIndex = this.getAttribute('data-slider-to');
 
       if (slideIndex) {
         config.interval = false;

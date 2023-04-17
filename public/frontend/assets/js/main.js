@@ -93,8 +93,8 @@
   var heroCarouselIndicators = $("#hero-carousel-indicators");
   heroCarousel.find(".carousel-inner").children(".carousel-item").each(function(index) {
     (index === 0) ?
-    heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "' class='active'></li>"):
-      heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "'></li>");
+    heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slider-to='" + index + "' class='active'></li>"):
+      heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slider-to='" + index + "'></li>");
   });
 
   heroCarousel.on('slid.bs.carousel', function(e) {

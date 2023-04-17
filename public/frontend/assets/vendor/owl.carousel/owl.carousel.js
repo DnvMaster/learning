@@ -2725,7 +2725,7 @@
 	};
 
 	/**
-	 * Transition to the next slide and set a timeout for the next transition.
+	 * Transition to the next slider and set a timeout for the next transition.
 	 * @private
 	 * @param {Number} [speed] - The animation speed for the animations.
 	 */
