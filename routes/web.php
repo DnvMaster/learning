@@ -52,9 +52,11 @@ Route::get('/brand/delete/{id}',[BrandController::class,'Delete']);
 Route::get('/multi/image',[BrandController::class, 'Multipic'])->name('multi.image');
 Route::post('/multi/add',[BrandController::class, 'StoreImg'])->name('store.image');
 
-
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    $users = DB::table('users')->get();
-    return view('dashboard',compact('users'));
+    // $users = User::all();
+    // $users = DB::table('users')->get();
+    return view('admin.index');
 })->name('dashboard');
+
+# Admin panel account logout
+Route::get('/user/logout',[BrandController::class,'logout'])->name('user.logout');

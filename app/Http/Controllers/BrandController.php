@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Multipic;
+use Illuminate\Support\Facades\Auth;
 use Image;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function AllBrands()
     {
         $brands = Brand::latest()->paginate(5);
@@ -36,7 +42,7 @@ class BrandController extends Controller
         // $brand_image->move($up_location,$img_name);
 
         $name_gen = hexdec(uniqid()).'.'.$brand_image->getClientOriginalExtension();
-        \Image::make($brand_image)->resize(70,40)->save('image/brand/'.$name_gen);
+        Image::make($brand_image)->resize(70,40)->save('image/brand/'.$name_gen);
         $last_img = 'image/brand/'.$name_gen;
 
         Brand::insert([
@@ -124,5 +130,11 @@ class BrandController extends Controller
             ]);
         }
         return Redirect()->back()->with('success','Все изображения были успешно добавлены.');
+    }
+
+    public function Logout()
+    {
+        Auth::logout();
+        return Redirect()->route('login')->with('success','Выход пользователя совершён.');
     }
 }
