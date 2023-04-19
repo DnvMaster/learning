@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Multipic;
-use Illuminate\Support\Facades\Auth;
-use Image;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Image;
+use Auth;
 
 class BrandController extends Controller
 {
@@ -135,6 +135,6 @@ class BrandController extends Controller
     public function Logout()
     {
         Auth::logout();
-        return Redirect()->route('logout')->with('success','Выход пользователя совершён.');
+        return Redirect()->route('login')->with('success','Выход пользователя совершён.');
     }
 }

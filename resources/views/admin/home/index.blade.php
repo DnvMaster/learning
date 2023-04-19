@@ -16,30 +16,29 @@
                             </div>
                         @endif
                         <!-- // Warning save category -->
-                        <div class="card-header">Слайды</div>
+                        <div class="card-header">О нас</div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <th scope="col" width="5%">№</th>
-                                    <th scope="col" width="15%">Заголовок</th>
-                                    <th scope="col" width="25%">Описание</th>
-                                    <th scope="col" width="15%">Слайд</th>
+                                    <th scope="col" width="15%">Зазоловок</th>
+                                    <th scope="col" width="25%">Краткий текст</th>
+                                    <th scope="col" width="15%">Полный текст</th>
                                     <th scope="col">Действие</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <!-- @php($i = 1) -->
-                                @foreach($sliders as $slider)
+                                @foreach($home_about as $about)
                                     <tr>
                                         <th scope="row">{{ $i++ }}</th>
-                                        <td>{{ $slider->title }}</td>
-                                        <td>{{ $slider->description }}</td>
-                                        <td><img src="{{ asset($slider->image) }}" style="height: 40px; width: 70px" alt="{{ $slider->title }}"></td>
+                                        <td>{{ $about->title }}</td>
+                                        <td>{{ $about->short_dis }}</td>
+                                        <td>{{ $about->long_dis }}</td>
                                         <td>
-                                        <td>
-                                            <a href="{{ url('slider/edit/'.$slider->id) }}" class="btn btn-info">Ред...</a>
-                                            <a href="{{ url('slider/delete/'.$slider->id) }}" onclick="return confirm('Вы уверены, что хотите удалить этот слайд?')" class="btn btn-danger">Удл...</a>
+                                            <a href="{{ url('about/edit/'.$about->id) }}" class="btn btn-info">Ред...</a>
+                                            <a href="{{ url('about/delete/'.$about->id) }}" onclick="return confirm('Вы уверены, что хотите удалить этот слайд?')" class="btn btn-danger">Удл...</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -47,9 +46,10 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{{ route('add.slider') }}"><button class="btn btn-info">Добавить слайд</button></a>
+                    <a href="{--{ route('add.about') }--}"><button class="btn btn-info">Добавить слайд</button></a>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+

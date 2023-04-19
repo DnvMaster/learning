@@ -35,7 +35,7 @@ Route::get('/home', function () {
 Route::get('/about', [AboutController::class, 'index'])->name('about')->middleware('check');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-# For category route
+
 Route::get('/category/all',[CategoryController::class,'AllCat'])->name('all.category');
 Route::post('/category/add',[CategoryController::class,'AddCat'])->name('store.category');
 Route::get('/category/edit/{id}',[CategoryController::class,'Edit']);
@@ -49,18 +49,17 @@ Route::post('/brand/add/',[BrandController::class,'Brands'])->name('store.brand'
 Route::get('/brand/edit/{id}',[BrandController::class,'Edit']);
 Route::post('/brand/update/{id}',[BrandController::class,'Update']);
 Route::get('/brand/delete/{id}',[BrandController::class,'Delete']);
-# Multi image route
+
 Route::get('/multi/image',[BrandController::class, 'Multipic'])->name('multi.image');
 Route::post('/multi/add',[BrandController::class, 'StoreImg'])->name('store.image');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    // $users = User::all();
-    // $users = DB::table('users')->get();
     return view('admin.index');
 })->name('dashboard');
 
-Route::get('/user/logout',[BrandController::class,'logout'])->name('user.logout');
+Route::get('/user/logout',[BrandController::class,'Logout'])->name('user.logout');
 Route::get('/home/slider',[HomeController::class,'HomeSlider'])->name('home.slider');
 Route::get('/add/slider',[HomeController::class, 'AddSlider'])->name('add.slider');
 Route::post('/store/slider',[HomeController::class,'StoreSlider'])->name('store.slider');
 
+Route::get('/home/about',[AboutController::class,'HomeAbout'])->name('home.about');
