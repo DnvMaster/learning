@@ -38,7 +38,7 @@
                                         <td>{{ $about->long_dis }}</td>
                                         <td>
                                             <a href="{{ url('about/edit/'.$about->id) }}" class="btn btn-info">Ред...</a>
-                                            <a href="{{ url('about/delete/'.$about->id) }}" onclick="return confirm('Вы уверены, что хотите удалить этот слайд?')" class="btn btn-danger">Удл...</a>
+                                            <a href="{{ url('about/delete/'.$about->id) }}" onclick="return confirm('Вы уверены, что хотите удалить?')" class="btn btn-danger">Удл...</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -46,7 +46,7 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{--{ route('add.about') }--}"><button class="btn btn-info">Добавить слайд</button></a>
+                    <a href="{{ route('add.about') }}"><button class="btn btn-info">Добавить</button></a>
                 </div>
             </div>
         </div>
