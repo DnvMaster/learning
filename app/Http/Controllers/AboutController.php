@@ -41,4 +41,9 @@ class AboutController extends Controller
         ]);
         return Redirect()->route('home.about')->with('success','Раздел о нас упешно обновлён.');
     }
+    public function DeleteAbout($id)
+    {
+        HomeAbout::find($id)->Delete();
+        return Redirect()->back()->with('success','Раздел о нас упешно удалён.');
+    }
 }
