@@ -12,7 +12,7 @@
                 </div>
             @endif
             <div class="card-header card-header-border-bottom">
-                <h2>Редактор о нас</h2>
+                <h2>J нас</h2>
             </div>
             <div class="card-body">
                 <form action="{{ route('store.about') }}" method="post">

@@ -27,4 +27,18 @@ class AboutController extends Controller
         ]);
         return Redirect()->route('home.about')->with('success','Раздел о нас упешно добавлен.');
     }
+    public function EditAbout($id)
+    {
+        $home_about = HomeAbout::find($id);
+        return view('admin.home.edit',compact('home_about'));
+    }
+    public function UpdateAbout(Request $request, $id)
+    {
+        HomeAbout::find($id)->update([
+            'title'=>$request->title,
+            'short_dis'=>$request->short_dis,
+            'long_dis'=>$request->long_dis,
+        ]);
+        return Redirect()->route('home.about')->with('success','Раздел о нас упешно обновлён.');
+    }
 }
