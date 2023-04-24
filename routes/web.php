@@ -37,8 +37,6 @@ Route::get('/home', function () {
 
 Route::get('/about', [AboutController::class, 'index'])->name('about')->middleware('check');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-
 Route::get('/category/all',[CategoryController::class,'AllCat'])->name('all.category');
 Route::post('/category/add',[CategoryController::class,'AddCat'])->name('store.category');
 Route::get('/category/edit/{id}',[CategoryController::class,'Edit']);
@@ -73,3 +71,6 @@ Route::post('/update/home-about/{id}',[AboutController::class,'UpdateAbout']);
 Route::get('/about/delete/{id}',[AboutController::class,'DeleteAbout']);
 
 Route::get('/portfolio',[AboutController::class,'Portfolio'])->name('portfolio');
+Route::get('admin/contact',[ContactController::class,'AdminContact'])->name('admin.contact');
+
+

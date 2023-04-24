@@ -8,7 +8,7 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">Главная</a></li>
+                <li class="active"><a href="{{ url('/') }}">Главная</a></li>
 
                 <li class="drop-down"><a href="">О нас</a>
                     <ul>

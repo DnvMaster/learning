@@ -9,7 +9,7 @@
                 <h2>Портфолио</h2>
                 <ol>
                     <li><a href="{{ url('/') }}">Главная</a></li>
-                    <li>Портфолио</li>
+                    <li><a href="{{ route('portfolio') }}">Портфолио</a></li>
                 </ol>
             </div>
 
