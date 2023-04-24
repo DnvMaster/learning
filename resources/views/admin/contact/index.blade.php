@@ -33,7 +33,7 @@
                                 @foreach($contacts as $contact)
                                     <tr>
                                         <th scope="row">{{ $i++ }}</th>
-                                        <td>{{ $contact->adress }}</td>
+                                        <td>{{ $contact->address }}</td>
                                         <td>{{ $contact->email }}</td>
                                         <td>{{ $contact->phone }}</td>
                                         <td>
@@ -46,7 +46,7 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{{ route('add.about') }}"><button class="btn btn-info">Добавить</button></a>
+                    <a href="{{ route('add.contact') }}"><button class="btn btn-info">Добавить</button></a>
                 </div>
             </div>
         </div>
