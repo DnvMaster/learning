@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ChangePass;
 use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 
@@ -78,3 +79,5 @@ Route::get('/admin/message',[ContactController::class,'AdminMessage'])->name('ad
 
 Route::get('/contact',[ContactController::class,'Contact'])->name('contact');
 Route::post('/contact/form',[ContactController::class,'ContactForm'])->name('contact.form');
+
+Route::get('/user/password',[ChangePass::class,'ChangePass'])->name('change.password');
