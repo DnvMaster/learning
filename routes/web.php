@@ -76,3 +76,4 @@ Route::get('/admin/add/contact',[ContactController::class,'AdminAddContact'])->n
 Route::post('/admin/store/contact',[ContactController::class,'AdminStoreContact'])->name('store.contact');
 
 Route::get('/contact',[ContactController::class,'Contact'])->name('contact');
+Route::post('/contact/form',[ContactController::class,'ContactForm'])->name('contact.form');
