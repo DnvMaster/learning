@@ -46,4 +46,9 @@ class ContactController extends Controller
         ]);
         return Redirect()->route('contact')->with('success','Ваше сообщение успешно отправлено.                  ');
     }
+    public function AdminMessage()
+    {
+        $messages = ContactForm::all();
+        return view('admin.contact.message',compact('messages'));
+    }
 }

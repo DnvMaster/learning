@@ -74,6 +74,7 @@ Route::get('/portfolio',[AboutController::class,'Portfolio'])->name('portfolio')
 Route::get('admin/contact',[ContactController::class,'AdminContact'])->name('admin.contact');
 Route::get('/admin/add/contact',[ContactController::class,'AdminAddContact'])->name('add.contact');
 Route::post('/admin/store/contact',[ContactController::class,'AdminStoreContact'])->name('store.contact');
+Route::get('/admin/message',[ContactController::class,'AdminMessage'])->name('admin.message');
 
 Route::get('/contact',[ContactController::class,'Contact'])->name('contact');
 Route::post('/contact/form',[ContactController::class,'ContactForm'])->name('contact.form');

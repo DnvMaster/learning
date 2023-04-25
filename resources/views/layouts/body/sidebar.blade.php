@@ -71,7 +71,7 @@
                                 </a>
                             </li>
                             <li class="active">
-                                <a class="sidenav-item-link" href="{--{ route('admin.message') }--}">
+                                <a class="sidenav-item-link" href="{{ route('admin.message') }}">
                                     <span class="nav-text">Сообщение</span>
                                 </a>
                             </li>
