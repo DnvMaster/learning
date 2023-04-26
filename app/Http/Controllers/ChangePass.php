@@ -15,7 +15,7 @@ class ChangePass extends Controller
     }
     public function UpdatePassword(Request $request)
     {
-        $validateData = $request->validate([
+        $request->validate([
             'oldpassword'=>'required',
             'password'=>'required|confirmed',
         ]);
@@ -30,6 +30,32 @@ class ChangePass extends Controller
         }
         else {
             return redirect()->back()->with('error','Введённый пароль не является верным.');
+        }
+    }
+    public function ProfileUpdate()
+    {
+        if (Auth::user())
+        {
+            $user = User::find(Auth::user()->id);
+            if ($user)
+            {
+                return view('admin.body.update_profile',compact('user'));
+            }
+        }
+    }
+    public function UpdateUserProfile(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        if ($user)
+        {
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->save();
+            return Redirect()->back()->with('success','Профиль пользователя успешно обновлён');
+        }
+        else
+        {
+            return redirect()->back();
         }
     }
 }
