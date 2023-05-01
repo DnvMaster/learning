@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -25,7 +26,9 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $abouts = DB::table('home_abouts')->first();
+    $images = Multipic::all();
+    return view('home', compact('brands','abouts','images'));
 });
 
 Route::get('/home', function () {
