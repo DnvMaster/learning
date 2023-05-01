@@ -71,3 +71,5 @@ Route::post('/store/about',[AboutController::class,'StoreAbout'])->name('store.a
 Route::get('/about/edit/{id}',[AboutController::class,'EditAbout']);
 Route::post('/update/home-about/{id}',[AboutController::class,'UpdateAbout']);
 Route::get('/about/delete/{id}',[AboutController::class,'DeleteAbout']);
+
+Route::get('/portfolio',[AboutController::class,'Portfolio'])->name('portfolio');
